@@ -1,6 +1,6 @@
 export interface User extends GoogleUser {
   recipeIds: string[];
-  createdOn: Date;
+  createdOn: any;
 }
 
 export interface GoogleUser {
