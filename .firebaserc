@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pouchy-4c341": {
+      "hosting": {
+        "Pouchy": [
+          "pouchy-4c341"
+        ]
+      }
+    }
+  }
+}
