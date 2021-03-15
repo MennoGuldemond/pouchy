@@ -1,0 +1,10 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$pouchy-primary: mat-palette($mat-amber);
+$pouchy-accent: mat-palette($mat-grey);
+$pouchy-warn: mat-palette($mat-pink);
+
+$pouchy-theme: mat-light-theme($pouchy-primary, $pouchy-accent, $pouchy-warn);
+
+@include angular-material-theme($pouchy-theme);
