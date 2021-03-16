@@ -1,0 +1,45 @@
+<div class="page-padding">
+  <form *ngIf="entry" [formGroup]="editEntryForm" (ngSubmit)="save()" fxLayout="column">
+
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" class="form-fields">
+      <mat-form-field appearance="outline" fxFlex>
+        <mat-label>Income / Expense</mat-label>
+        <mat-select name="type" formControlName="type">
+          <mat-option *ngFor="let type of entryTypes" [value]="type">
+            {{entryTypeLabels[type]}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" fxFlex>
+          <mat-label for="name">Name</mat-label>
+          <input matInput placeholder="ex. Gym membership" type="text" formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" fxFlex>
+          <mat-label for="amount">Amount</mat-label>
+          <input matInput type="number" formControlName="amount">
+        </mat-form-field>
+
+      <mat-form-field appearance="outline" fxFlex>
+        <mat-label for="description">Description</mat-label>
+        <textarea matInput placeholder="(optional) make a note about this Pouchy" formControlName="description"
+            rows="3"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" fxFlex>
+        <mat-label>Interval</mat-label>
+        <mat-select name="interval" formControlName="interval">
+          <mat-option *ngFor="let type of intervalTypes" [value]="type">
+            {{intervalLabels[type]}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="align-content-right">
+      <button mat-raised-button color="primary" class="save-button" type="submit" [disabled]="editEntryForm.invalid">Save</button>
+    </div>
+
+  </form>
+</div>

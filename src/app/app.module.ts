@@ -14,6 +14,8 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import {
   AccountComponent,
+  BudgetEditComponent,
+  BudgetOverviewComponent,
   HomeComponent,
   LoginComponent,
   NavBarComponent,
@@ -26,6 +28,8 @@ import {
     HomeComponent,
     NavBarComponent,
     AccountComponent,
+    BudgetOverviewComponent,
+    BudgetEditComponent,
   ],
   imports: [
     BrowserModule,
