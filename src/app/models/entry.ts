@@ -1,7 +1,10 @@
 import { EntryType } from './entry-type';
 import { Interval } from './interval';
 
-export interface Entry {
+export class Entry {
+  constructor() {}
+
+  id: string;
   amount: number;
   type: EntryType;
   interval: Interval;

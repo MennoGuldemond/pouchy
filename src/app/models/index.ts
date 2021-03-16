@@ -1,4 +1,4 @@
 export { GoogleUser, User } from './user';
-export { EntryType } from './entry-type';
+export { EntryType, EntryTypeLabels } from './entry-type';
+export { Interval, IntervalLabels } from './interval';
 export { Entry } from './entry';
-export { Interval } from './interval';
