@@ -7,6 +7,7 @@ export class Entry {
   id: string;
   amount: number;
   type: EntryType;
+  category: number;
   interval: Interval;
   name: string;
   description: string;

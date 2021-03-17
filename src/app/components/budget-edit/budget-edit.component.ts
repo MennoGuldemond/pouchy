@@ -4,10 +4,14 @@ import { Router } from '@angular/router';
 
 import {
   Entry,
-  EntryType,
   EntryTypeLabels,
-  Interval,
+  EntryTypes,
+  ExpenseCategoryLabels,
+  ExpenseCategoryTypes,
+  IncomeCategoryLabels,
+  IncomeCategoryTypes,
   IntervalLabels,
+  IntervalTypes,
 } from '../../models';
 import { BudgetService } from '../../services';
 
@@ -18,13 +22,16 @@ import { BudgetService } from '../../services';
 })
 export class BudgetEditComponent implements OnInit {
   intervalLabels = IntervalLabels;
-  intervalTypes = Object.values(Interval).filter(
-    (value) => typeof value === 'number'
-  );
+  intervalTypes = IntervalTypes;
+
   entryTypeLabels = EntryTypeLabels;
-  entryTypes = Object.values(EntryType).filter(
-    (value) => typeof value === 'number'
-  );
+  entryTypes = EntryTypes;
+
+  incomeCategoryLabels = IncomeCategoryLabels;
+  incomeCategoryTypes = IncomeCategoryTypes;
+
+  expenseCategoryLabels = ExpenseCategoryLabels;
+  expenseCategoryTypes = ExpenseCategoryTypes;
 
   entry: Entry;
   editEntryForm: FormGroup;
@@ -42,9 +49,10 @@ export class BudgetEditComponent implements OnInit {
 
   buildForm(): void {
     this.editEntryForm = this.formBuilder.group({
-      type: [this.entry.type, [Validators.required]],
+      type: [this.entry.type || 1, [Validators.required]],
+      category: [this.entry.category, [Validators.required]],
       name: [this.entry.name, [Validators.required]],
-      amount: [this.entry.amount, [Validators.required]],
+      amount: [this.entry.amount, [Validators.required, Validators.min(0)]],
       description: this.entry.description,
       interval: [this.entry.interval, [Validators.required]],
     });
@@ -54,6 +62,7 @@ export class BudgetEditComponent implements OnInit {
     const toSave: Entry = {
       ...this.entry,
       type: this.editEntryForm.value.type,
+      category: this.editEntryForm.value.category,
       name: this.editEntryForm.value.name,
       description: this.editEntryForm.value.description,
       amount: this.editEntryForm.value.amount,

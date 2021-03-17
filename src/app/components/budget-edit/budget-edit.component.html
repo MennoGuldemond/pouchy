@@ -11,6 +11,25 @@
         </mat-select>
       </mat-form-field>
 
+      <mat-form-field *ngIf="editEntryForm.value.type === 1; else incomeCategory" appearance="outline" fxFlex>
+        <mat-label>Category</mat-label>
+        <mat-select name="interval" formControlName="category">
+          <mat-option *ngFor="let type of expenseCategoryTypes" [value]="type">
+            {{expenseCategoryLabels[type]}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <ng-template #incomeCategory>
+        <mat-form-field  appearance="outline" fxFlex>
+          <mat-label>Category</mat-label>
+          <mat-select name="interval" formControlName="category">
+            <mat-option *ngFor="let type of incomeCategoryTypes" [value]="type">
+              {{incomeCategoryLabels[type]}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ng-template>
+
       <mat-form-field appearance="outline" fxFlex>
           <mat-label for="name">Name</mat-label>
           <input matInput placeholder="ex. Gym membership" type="text" formControlName="name">
@@ -18,7 +37,7 @@
 
         <mat-form-field appearance="outline" fxFlex>
           <mat-label for="amount">Amount</mat-label>
-          <input matInput type="number" formControlName="amount">
+          <input matInput type="number" pattern="[0-9]*" formControlName="amount">
         </mat-form-field>
 
       <mat-form-field appearance="outline" fxFlex>

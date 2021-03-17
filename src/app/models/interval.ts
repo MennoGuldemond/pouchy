@@ -7,6 +7,10 @@ export enum Interval {
   Yearly,
 }
 
+export const IntervalTypes = Object.values(Interval).filter(
+  (value) => typeof value === 'number'
+);
+
 export const IntervalLabels: Record<Interval, string> = {
   [Interval.Daily]: 'Daily',
   [Interval.Weekly]: 'Weekly',
