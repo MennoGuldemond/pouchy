@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -43,7 +43,7 @@ import {
     BrowserAnimationsModule,
     MaterialModule,
   ],
-  providers: [],
+  providers: [{ provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

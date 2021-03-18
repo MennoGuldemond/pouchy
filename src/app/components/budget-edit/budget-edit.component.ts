@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import * as Calculate from '../../calculate';
 
 import {
   Entry,
@@ -65,7 +66,10 @@ export class BudgetEditComponent implements OnInit {
       category: this.editEntryForm.value.category,
       name: this.editEntryForm.value.name,
       description: this.editEntryForm.value.description,
-      amount: this.editEntryForm.value.amount,
+      amount: Calculate.getDailyAmount(
+        this.editEntryForm.value.amount,
+        this.editEntryForm.value.interval
+      ),
       interval: this.editEntryForm.value.interval,
     };
 

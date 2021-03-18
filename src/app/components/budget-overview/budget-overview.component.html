@@ -1,1 +1,7 @@
-<p>budget-overview works!</p>
+<div class="page-padding">
+    <div *ngIf="entries">
+        <p>Income: {{ getMonthlyIncome() | currency }}</p>
+        <p>Expenses: {{ getMonthlyExpenses() | currency }}</p>
+    </div>
+    <button mat-stroked-button color="primary" (click)="AddEntry()">Add</button>
+</div>
