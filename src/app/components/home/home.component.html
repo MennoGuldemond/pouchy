@@ -1,4 +1,7 @@
 <div class="center-content page-padding">
-    <h1>Pouchy</h1>
-    <h3>Manage your budget</h3>
-  </div>
+  <h1>Pouchy</h1>
+  <h3>Manage your budget</h3>
+  <button *ngIf="!(auth.user$ | async)" mat-stroked-button (click)="auth.googleSignin()">
+    Login
+  </button>
+</div>

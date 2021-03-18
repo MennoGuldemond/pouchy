@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services';
 
 @Component({
   selector: 'pchy-home',
@@ -7,5 +8,5 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  constructor(private router: Router) {}
+  constructor(public auth: AuthService, private router: Router) {}
 }

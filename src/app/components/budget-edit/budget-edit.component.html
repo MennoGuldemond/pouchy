@@ -20,7 +20,7 @@
         </mat-select>
       </mat-form-field>
       <ng-template #incomeCategory>
-        <mat-form-field  appearance="outline" fxFlex>
+        <mat-form-field appearance="outline" fxFlex>
           <mat-label>Category</mat-label>
           <mat-select name="interval" formControlName="category">
             <mat-option *ngFor="let type of incomeCategoryTypes" [value]="type">
@@ -31,19 +31,19 @@
       </ng-template>
 
       <mat-form-field appearance="outline" fxFlex>
-          <mat-label for="name">Name</mat-label>
-          <input matInput placeholder="ex. Gym membership" type="text" formControlName="name">
-        </mat-form-field>
+        <mat-label for="name">Name</mat-label>
+        <input matInput placeholder="ex. Gym membership" type="text" formControlName="name">
+      </mat-form-field>
 
-        <mat-form-field appearance="outline" fxFlex>
-          <mat-label for="amount">Amount</mat-label>
-          <input matInput type="number" pattern="[0-9]*" formControlName="amount">
-        </mat-form-field>
+      <mat-form-field appearance="outline" fxFlex>
+        <mat-label for="amount">Amount</mat-label>
+        <input matInput type="number" pattern="[0-9]*" formControlName="amount">
+      </mat-form-field>
 
       <mat-form-field appearance="outline" fxFlex>
         <mat-label for="description">Description</mat-label>
         <textarea matInput placeholder="(optional) make a note about this Pouchy" formControlName="description"
-            rows="3"></textarea>
+          rows="3"></textarea>
       </mat-form-field>
 
       <mat-form-field appearance="outline" fxFlex>
@@ -57,7 +57,8 @@
     </div>
 
     <div class="align-content-right">
-      <button mat-raised-button color="primary" class="save-button" type="submit" [disabled]="editEntryForm.invalid">Save</button>
+      <button mat-raised-button color="primary" class="save-button" type="submit"
+        [disabled]="editEntryForm.invalid">Save</button>
     </div>
 
   </form>
