@@ -17,16 +17,12 @@ import {
   BudgetEditComponent,
   BudgetOverviewComponent,
   HomeComponent,
-  LoginComponent,
-  NavBarComponent,
 } from './components';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     HomeComponent,
-    NavBarComponent,
     AccountComponent,
     BudgetOverviewComponent,
     BudgetEditComponent,

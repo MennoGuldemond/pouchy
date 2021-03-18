@@ -1,1 +1,31 @@
-<pchy-nav-bar></pchy-nav-bar>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
+        [attr.role]="(deviceService.isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(deviceService.isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(deviceService.isHandset$ | async) === false">
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/home">Home</a>
+        <a mat-list-item routerLink="/overview">Budget</a>
+        <a *ngIf="auth.user$ | async" mat-list-item routerLink="/account">Account</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar *ngIf="(deviceService.isHandset$ | async) == false" fxLayout="row">
+        <button *ngIf="(deviceService.isHandset$ | async) === false" mat-icon-button aria-label="Back button" (click)="onBackClick()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <span fxFlex class="center-content">Pouchy</span>
+        <div *ngIf="auth.user$ | async as user" fxLayout="row" class="avatar-circle">
+          <img fxFlex [matMenuTriggerFor]="userMenu" [src]="user.photoURL + '=s32'" alt="Profiel foto">
+          <mat-menu #userMenu="matMenu">
+            <button mat-menu-item (click)="onAccountClick()">Account</button>
+            <button mat-menu-item (click)="onLogoutClick()">Sign Out</button>
+          </mat-menu>
+        </div>
+      </mat-toolbar>
+  
+      <router-outlet></router-outlet>
+  
+    </mat-sidenav-content>
+  </mat-sidenav-container>

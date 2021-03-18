@@ -5,7 +5,6 @@ import {
   BudgetEditComponent,
   BudgetOverviewComponent,
   HomeComponent,
-  LoginComponent,
 } from './components';
 import { AuthGuard } from './guards';
 
@@ -21,7 +20,6 @@ const routes: Routes = [
     component: BudgetEditComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'login', component: LoginComponent },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   // { path: '**', component: NotFoundComponent },

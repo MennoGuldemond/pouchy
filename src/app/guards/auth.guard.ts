@@ -30,7 +30,7 @@ export class AuthGuard implements CanActivate {
             // Save the url the user was navigating to.
             localStorage.setItem('urlBeforeLogin', next.routeConfig.path);
           }
-          this.router.navigate(['login']);
+          this.router.navigate(['home']);
           return false;
         }
       })
