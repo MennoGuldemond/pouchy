@@ -6,6 +6,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 import { environment } from 'src/environments/environment';
 
@@ -35,6 +36,7 @@ import {
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    GoogleChartsModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
     MaterialModule,
