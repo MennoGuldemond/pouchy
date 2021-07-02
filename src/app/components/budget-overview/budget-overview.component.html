@@ -4,4 +4,6 @@
     <p>Expenses: {{ getMonthlyExpenses() | currency }}</p>
   </div>
   <button mat-stroked-button color="primary" (click)="AddEntry()">Add</button>
+  <google-chart *ngIf="chart" [type]="chart.type" [options]="chart.options" [height]="chart.height" [data]="chart.data">
+  </google-chart>
 </div>
